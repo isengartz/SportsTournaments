@@ -1,7 +1,7 @@
-import Tournament from '../../interfaces/Tournament';
+import Tournament from '../../../interfaces/Tournament';
 import AbstractTournament from './AbstractTournament';
-import { Game } from '../../interfaces/Game';
-import { GameType } from '../../interfaces/GameType';
+import { Game } from '../../../interfaces/Game';
+import { GameType } from '../../../interfaces/GameType';
 export default class FightingTournament
   extends AbstractTournament
   implements Tournament

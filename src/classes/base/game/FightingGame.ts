@@ -1,9 +1,8 @@
-import { Game } from './Game';
-import { Score } from './Score';
-import { WrongInputSizeError } from '../exceptions/WrongInputSizeError';
-import Fighter from '../classes/base/Fighter';
-import { GameNotFinishedError } from '../exceptions/GameNotFinishedError';
-import { Rival } from './Rival';
+import { Game } from '../../../interfaces/Game';
+import { Score } from '../../../interfaces/Score';
+import { WrongInputSizeError } from '../../../exceptions/WrongInputSizeError';
+import Fighter from '../rival/Fighter';
+import { Rival } from '../../../interfaces/Rival';
 
 const GAME_TYPE = 'FightingGame';
 const CORRECT_NUMBER_OF_RIVALS_GAME_SIZE = 2;

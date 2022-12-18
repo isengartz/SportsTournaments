@@ -1,4 +1,4 @@
-import { Rival } from '../../interfaces/Rival';
+import { Rival } from '../../../interfaces/Rival';
 
 const ATTACK_POWER_RATIO = 0.8;
 const DEFENSE_RATING_RATIO = 0.2;

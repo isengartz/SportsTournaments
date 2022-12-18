@@ -1,6 +1,5 @@
 import Tournament from '../../interfaces/Tournament';
-import { TournamentType } from '../../interfaces/TournamentType';
-import FightingTournament from '../base/FightingTournament';
+import FightingTournament from '../base/tournament/FightingTournament';
 import { GameType } from '../../interfaces/GameType';
 
 export class UFCTournament extends FightingTournament implements Tournament {

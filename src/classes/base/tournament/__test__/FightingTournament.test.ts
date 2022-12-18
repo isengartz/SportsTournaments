@@ -1,9 +1,9 @@
-import { GameType } from '../../../interfaces/GameType';
-import FightingGameFactory from '../FightingGameFactory';
+import { GameType } from '../../../../interfaces/GameType';
+import FightingGameFactory from '../../../factories/game/FightingGameFactory';
 import FightingTournament from '../FightingTournament';
-import UFCFighterRivalFactory from '../FighterRivalFactory';
-import { DuplicateRivalNameError } from '../../../exceptions/DuplicateRivalNameError';
-import { Rival } from '../../../interfaces/Rival';
+import UFCFighterRivalFactory from '../../../factories/rival/FighterRivalFactory';
+import { DuplicateRivalNameError } from '../../../../exceptions/DuplicateRivalNameError';
+import { Rival } from '../../../../interfaces/Rival';
 
 describe('Testing FightingTournament Class', () => {
   const gameType = GameType.MIXED_MARTIAL_ARTS;

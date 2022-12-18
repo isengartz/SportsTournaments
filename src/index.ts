@@ -1,8 +1,8 @@
 import { GameType } from './interfaces/GameType';
 
-import GameFactoryCreator from './classes/base/GameFactoryCreator';
-import RivalFactoryCreator from './classes/base/RivalFactoryCreator';
-import TournamentFactoryCreator from './classes/base/TournamentFactoryCreator';
+import GameFactoryCreator from './classes/factories/game/GameFactoryCreator';
+import RivalFactoryCreator from './classes/factories/rival/RivalFactoryCreator';
+import TournamentFactoryCreator from './classes/factories/tournament/TournamentFactoryCreator';
 
 (async () => {
   const gameType = GameType.UFC;

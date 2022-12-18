@@ -1,7 +1,7 @@
-import { GameType } from '../../interfaces/GameType';
-import GameFactory from '../../interfaces/GameFactory';
+import { GameType } from '../../../interfaces/GameType';
+import GameFactory from './GameFactory';
 import FightingGameFactory from './FightingGameFactory';
-import { WrongGameTypeError } from '../../exceptions/WrongGameTypeError';
+import { WrongGameTypeError } from '../../../exceptions/WrongGameTypeError';
 
 export default abstract class GameFactoryCreator {
   static create(type: GameType): GameFactory {

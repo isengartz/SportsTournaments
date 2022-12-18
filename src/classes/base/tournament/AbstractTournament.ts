@@ -1,13 +1,13 @@
-import Tournament from '../../interfaces/Tournament';
-import { Rival } from '../../interfaces/Rival';
-import { TournamentResult } from '../../interfaces/TournamentResult';
+import Tournament from '../../../interfaces/Tournament';
+import { Rival } from '../../../interfaces/Rival';
+import { TournamentResult } from '../../../interfaces/TournamentResult';
 
-import { Round } from '../../interfaces/Round';
-import { WrongInputSizeError } from '../../exceptions/WrongInputSizeError';
-import { shuffleArray } from '../../utils';
-import GameFactory from '../../interfaces/GameFactory';
-import { GameType } from '../../interfaces/GameType';
-import { DuplicateRivalNameError } from '../../exceptions/DuplicateRivalNameError';
+import { Round } from '../../../interfaces/Round';
+import { WrongInputSizeError } from '../../../exceptions/WrongInputSizeError';
+import { shuffleArray } from '../../../utils';
+import GameFactory from '../../factories/game/GameFactory';
+import { GameType } from '../../../interfaces/GameType';
+import { DuplicateRivalNameError } from '../../../exceptions/DuplicateRivalNameError';
 
 export default abstract class AbstractTournament implements Tournament {
   _rivals: Rival[] = [];

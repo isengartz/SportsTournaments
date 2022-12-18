@@ -1,5 +1,5 @@
 import { Rival } from '../../interfaces/Rival';
-import Fighter from '../base/Fighter';
+import Fighter from '../base/rival/Fighter';
 import Fightable from '../../interfaces/Fightable';
 
 const CRITICAL_STRIKE_DAMAGE_MULTIPLIER = 2;

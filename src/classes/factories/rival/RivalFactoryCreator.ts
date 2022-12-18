@@ -1,6 +1,6 @@
-import { GameType } from '../../interfaces/GameType';
-import { WrongGameTypeError } from '../../exceptions/WrongGameTypeError';
-import RivalFactory from '../../interfaces/RivalFactory';
+import { GameType } from '../../../interfaces/GameType';
+import { WrongGameTypeError } from '../../../exceptions/WrongGameTypeError';
+import RivalFactory from './RivalFactory';
 import UFCFighterRivalFactory from './FighterRivalFactory';
 
 export default abstract class RivalFactoryCreator {

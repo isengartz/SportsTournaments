@@ -1,6 +1,6 @@
-import { FightingGame } from '../../../interfaces/FightingGame';
-import Fighter from '../Fighter';
-import UFCFighter from '../../UFCTournament/UFCFighter';
+import { FightingGame } from '../FightingGame';
+import Fighter from '../../rival/Fighter';
+import UFCFighter from '../../../UFCTournament/UFCFighter';
 
 describe('Testing the FightingGame Class', () => {
   const createSimpleFightingGame = (): [
