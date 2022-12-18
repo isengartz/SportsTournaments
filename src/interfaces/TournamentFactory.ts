@@ -1,5 +1,5 @@
-import Tournament from '../../../interfaces/Tournament';
-import GameFactory from '../game/GameFactory';
+import Tournament from './Tournament';
+import GameFactory from './GameFactory';
 
 export default interface TournamentFactory {
   createTournament(gameFactory: GameFactory): Tournament;

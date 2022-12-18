@@ -1,4 +1,4 @@
-import RivalFactory from './RivalFactory';
+import RivalFactory from '../../../interfaces/RivalFactory';
 import UFCFighter from '../../UFCTournament/UFCFighter';
 
 export default class UFCFighterRivalFactory implements RivalFactory {

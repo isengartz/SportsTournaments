@@ -5,7 +5,7 @@ import { TournamentResult } from '../../../interfaces/TournamentResult';
 import { Round } from '../../../interfaces/Round';
 import { WrongInputSizeError } from '../../../exceptions/WrongInputSizeError';
 import { shuffleArray } from '../../../utils';
-import GameFactory from '../../factories/game/GameFactory';
+import GameFactory from '../../../interfaces/GameFactory';
 import { GameType } from '../../../interfaces/GameType';
 import { DuplicateRivalNameError } from '../../../exceptions/DuplicateRivalNameError';
 

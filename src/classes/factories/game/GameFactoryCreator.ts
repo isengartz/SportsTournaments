@@ -1,5 +1,5 @@
 import { GameType } from '../../../interfaces/GameType';
-import GameFactory from './GameFactory';
+import GameFactory from '../../../interfaces/GameFactory';
 import FightingGameFactory from './FightingGameFactory';
 import { WrongGameTypeError } from '../../../exceptions/WrongGameTypeError';
 

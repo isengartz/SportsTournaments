@@ -1,6 +1,6 @@
 import { GameType } from '../../../interfaces/GameType';
 import { WrongGameTypeError } from '../../../exceptions/WrongGameTypeError';
-import TournamentFactory from './TournamentFactory';
+import TournamentFactory from '../../../interfaces/TournamentFactory';
 import FightingTournamentFactory from './FightingTournamentFactory';
 
 export default abstract class TournamentFactoryCreator {
