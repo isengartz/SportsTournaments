@@ -2,13 +2,17 @@ import Tournament from '../../../interfaces/Tournament';
 import AbstractTournament from './AbstractTournament';
 import { Game } from '../../../interfaces/Game';
 import { GameType } from '../../../interfaces/GameType';
+
 export default class FightingTournament
   extends AbstractTournament
   implements Tournament
 {
   public canTournamentStart(): boolean {
-    const rivalsLengthIsEvenNumber = this._rivals.length / 2 - 1 === 0;
-    return this._rivals.length > 0 && rivalsLengthIsEvenNumber;
+    if (this._rivals.length === 0) {
+      return false;
+    }
+    // is even number
+    return this._rivals.length / 2 - 1 === 0;
   }
   protected async _playRound(): Promise<void> {
     const games = this._createOneOnOneGames();
@@ -23,10 +27,10 @@ export default class FightingTournament
     this._rounds.push(round);
   }
   _createOneOnOneGames(): Game[] {
-    const numberOfGames = this._remainingRivals.length / 2;
     const games = [];
-    for (let game = 0; game < numberOfGames; game++) {
-      const rivalPair = this._remainingRivals.slice(0, 2);
+    const remainingRivals = [...this._remainingRivals];
+    while (remainingRivals.length > 0) {
+      const rivalPair = remainingRivals.splice(0, 2);
       games.push(this._gameFactory.createGame(rivalPair));
     }
     return games;
