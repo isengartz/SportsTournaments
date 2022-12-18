@@ -1,4 +1,4 @@
 export default interface Fightable {
-  attack(): void;
+  attack(fightable: Fightable): void;
   attacked(damage: number): number;
 }

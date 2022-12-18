@@ -10,9 +10,11 @@ describe('Test UFCFighter Class', () => {
   });
   it('Should update the score with the damage gonna deal', () => {
     const fighter = new UFCFighter('Rocky', 10);
-    const mockedCalculateDamage = jest.spyOn(fighter, 'calculateDamage');
+    const fighterReceiver = new UFCFighter('Rocky2', 10);
+
+    const mockedCalculateDamage = jest.spyOn(fighterReceiver, 'attacked');
     mockedCalculateDamage.mockImplementation(() => 5);
-    fighter.play();
+    fighter.attack(fighterReceiver);
     expect(mockedCalculateDamage).toHaveBeenCalledTimes(1);
     expect(fighter.getScore()).toEqual(5);
   });
