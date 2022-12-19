@@ -2,6 +2,8 @@ import Tournament from '../../../interfaces/Tournament';
 import AbstractTournament from './AbstractTournament';
 import { Game } from '../../../interfaces/Game';
 import { GameType } from '../../../interfaces/GameType';
+import { Logger } from '../../../interfaces/Logger';
+import { WrongInputSizeError } from '../../../exceptions/WrongInputSizeError';
 
 export default class FightingTournament
   extends AbstractTournament
@@ -14,12 +16,16 @@ export default class FightingTournament
     // is even number
     return this._rivals.length / 2 - 1 === 0;
   }
+
   protected async _playRound(): Promise<void> {
     const games = this._createOneOnOneGames();
     const round: Game[] = [];
     await Promise.all(
       games.map(async (game: Game) => {
         await game.start();
+        // @TODO: Move logger inside game
+        this._tournamentRules.shouldLogGameEvents() &&
+          this._logger?.log(game.getWinner());
         round.push(game);
         this._eliminateLoser(game.getLoser()!);
       }),

@@ -52,4 +52,17 @@ describe('Testing the FightingGame Class', () => {
     expect(scoreWinner).toEqual(1);
     expect(scoreLoser).toEqual(0);
   });
+
+  it('should attack and attacked', async () => {
+    const [game, goodFighter, badFighter] = createSimpleFightingGame();
+    const goodFighterAttack = jest.spyOn(goodFighter, 'attack');
+    const goodFighterAttacked = jest.spyOn(goodFighter, 'attacked');
+    const badFighterAttack = jest.spyOn(badFighter, 'attack');
+    const badFighterAttacked = jest.spyOn(badFighter, 'attacked');
+    await game.start();
+    expect(goodFighterAttack).toHaveBeenCalled();
+    expect(goodFighterAttacked).toHaveBeenCalled();
+    expect(badFighterAttack).toHaveBeenCalled();
+    expect(badFighterAttacked).toHaveBeenCalled();
+  });
 });

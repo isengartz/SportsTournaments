@@ -8,8 +8,8 @@ import { promisifyFunction } from '../../../utils';
 const GAME_TYPE = 'FightingGame';
 const CORRECT_NUMBER_OF_RIVALS_GAME_SIZE = 2;
 const FIGHTER_STARTING_HP = 100;
-type PromiseResolverFn = () => void;
 type HealthPoints = [number, number];
+
 export class FightingGame implements Game {
   _score: Score = [0, 0];
   _rivals: Fighter[] = [];

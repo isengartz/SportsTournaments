@@ -1,0 +1,6 @@
+export enum GameFormat {
+  SINGLE_ELIMINATION,
+  BEST_OF_THREE,
+  BEST_OF_FIVE,
+  BEST_OF_SEVEN,
+}

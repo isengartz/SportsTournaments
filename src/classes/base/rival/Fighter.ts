@@ -1,18 +1,15 @@
 import { Rival } from '../../../interfaces/Rival';
 import Fightable from '../../../interfaces/Fightable';
+import BaseRival from './BaseRival';
+import { randomNumberFromOneToHundred } from '../../../utils';
 
 const ATTACK_POWER_RATIO = 0.8;
 const DEFENSE_RATING_RATIO = 0.2;
 const MISS_CHANCE_PERCENTAGE = 13;
 const CRITICAL_STRIKE_CHANCE_PERCENTAGE = 3;
 const CRITICAL_STRIKE_CHANCE_RATIO = 0.3;
-const ONE_HUNDRED_PERCENTAGE = 100;
 
-export default abstract class Fighter implements Rival {
-  _name: string;
-  _score: number = 0;
-
-  _rating: number;
+export default abstract class Fighter extends BaseRival implements Rival {
   _attackPower: number = 0;
   _defenseRating: number = 0;
 
@@ -20,21 +17,8 @@ export default abstract class Fighter implements Rival {
   _criticalStrikeChance: number = 0;
 
   protected constructor(name: string, rating: number) {
-    this._name = name;
-    this._rating = rating;
+    super(name, rating);
     this._calculateBaseStats();
-  }
-
-  public getName(): string {
-    return this._name;
-  }
-
-  public getScore(): number {
-    return this._score;
-  }
-
-  public play(): void {
-    return;
   }
 
   public attacked(damage: number): number {
@@ -51,16 +35,10 @@ export default abstract class Fighter implements Rival {
 
   abstract calculateDamage(): number;
   protected _isCriticalDamage(): boolean {
-    return (
-      this._criticalStrikeChance >=
-      ((Math.random() * ONE_HUNDRED_PERCENTAGE) % ONE_HUNDRED_PERCENTAGE) + 1
-    );
+    return this._criticalStrikeChance >= randomNumberFromOneToHundred();
   }
   protected _isAttackDodged(): boolean {
-    return (
-      this._missChance >=
-      ((Math.random() * ONE_HUNDRED_PERCENTAGE) % ONE_HUNDRED_PERCENTAGE) + 1
-    );
+    return this._missChance >= randomNumberFromOneToHundred();
   }
   protected _calculateBaseStats(): void {
     this._attackPower = ATTACK_POWER_RATIO * this._rating;

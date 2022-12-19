@@ -8,15 +8,20 @@ import { shuffleArray } from '../../../utils';
 import GameFactory from '../../../interfaces/GameFactory';
 import { GameType } from '../../../interfaces/GameType';
 import { DuplicateRivalNameError } from '../../../exceptions/DuplicateRivalNameError';
+import { Logger } from '../../../interfaces/Logger';
+import { TournamentRules } from '../../../interfaces/TournamentRules';
 
 export default abstract class AbstractTournament implements Tournament {
   _rivals: Rival[] = [];
   _remainingRivals: Rival[] = [];
   _rounds: Round[] = [];
   _gameFactory: GameFactory;
+  _logger?: Logger;
+  _tournamentRules: TournamentRules;
 
-  constructor(gameFactory: GameFactory) {
+  constructor(gameFactory: GameFactory, tournamentRules: TournamentRules) {
     this._gameFactory = gameFactory;
+    this._tournamentRules = tournamentRules;
   }
 
   public addContestant(rival: Rival): void {
@@ -52,7 +57,8 @@ export default abstract class AbstractTournament implements Tournament {
     console.table(resultTable);
   }
 
-  public async start(): Promise<void> {
+  public async start(logger: Logger): Promise<void> {
+    this._logger = logger;
     if (!this.canTournamentStart()) {
       throw new WrongInputSizeError();
     }
