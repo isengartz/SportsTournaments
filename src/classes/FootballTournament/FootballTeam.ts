@@ -38,4 +38,8 @@ export default class FootballTeam extends RivalTeam implements Rival {
     }
     return numberOfKeepers === 1;
   }
+
+  getTeamPlayers(): FootballPlayer[] {
+    return this._team;
+  }
 }
