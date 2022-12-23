@@ -7,8 +7,9 @@ import { InvalidDataError } from '../../exceptions/InvalidDataError';
 const VALID_NUMBER_OF_FOOTBALL_PLAYERS = 11;
 export default class FootballTeam extends RivalTeam implements Rival {
   _team: FootballPlayer[] = [];
-  constructor(team: Team, name: string) {
+  constructor(team: FootballPlayer[], name: string) {
     super(team, name);
+    this._team = team;
   }
 
   play() {
@@ -28,7 +29,7 @@ export default class FootballTeam extends RivalTeam implements Rival {
     const numberOfKeepers = this._team.reduce((previousValue, currentValue) => {
       const isGoalkeeper =
         currentValue.getPlayerPosition() === FootballPlayerType.GOAL_KEEPER;
-      return isGoalkeeper ? previousValue++ : previousValue;
+      return isGoalkeeper ? previousValue + 1 : previousValue;
     }, 0);
     if (numberOfKeepers > 1) {
       throw new InvalidDataError(
