@@ -34,4 +34,8 @@ export default class RivalTeam implements Rival {
   play(): void {
     this._team.forEach((player) => player.play());
   }
+
+  getTeamPlayers(): Rival[] {
+    return this._team;
+  }
 }

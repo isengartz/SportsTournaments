@@ -1,5 +1,6 @@
 import { Rival } from '../../interfaces/Rival';
 import BaseRival from '../base/rival/BaseRival';
+import { randomNumberFromOneToHundred } from '../../utils';
 
 export enum FootballPlayerType {
   GOAL_KEEPER,
@@ -37,5 +38,18 @@ export default class FootballPlayer extends BaseRival implements Rival {
       default:
         return 0;
     }
+  }
+
+  getPlayerPosition(): FootballPlayerType {
+    return this._playerType;
+  }
+
+  play(): void {
+    this._score = 0;
+    this._shoot();
+  }
+
+  _shoot(): void {
+    this._score = this._scoreChance > randomNumberFromOneToHundred() ? 1 : 0;
   }
 }
