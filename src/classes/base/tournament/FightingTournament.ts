@@ -2,8 +2,6 @@ import Tournament from '../../../interfaces/Tournament';
 import AbstractTournament from './AbstractTournament';
 import { Game } from '../../../interfaces/Game';
 import { GameType } from '../../../interfaces/GameType';
-import { Logger } from '../../../interfaces/Logger';
-import { WrongInputSizeError } from '../../../exceptions/WrongInputSizeError';
 
 export default class FightingTournament
   extends AbstractTournament

@@ -12,6 +12,10 @@ export default class FootballGame implements Game {
   _loser: Rival | null = null;
   _winner: Rival | null = null;
 
+  constructor(teams: Rival[]) {
+    this._rivals = teams;
+  }
+
   getLoser(): Rival | null {
     return this._loser;
   }
